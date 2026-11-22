@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import SearchBar from "./search-bar";
 
 export default function Itunes() {
   let [results, setResults] = useState([]);
-  let [search, setSearch] = useState("")
+  let [search, setSearch] = useState("");
 
   const cleanTerm = (term) => {
     return term.replaceAll(" ", "+");
@@ -38,19 +38,28 @@ export default function Itunes() {
   console.log(results);
   return (
     <div>
-      <main>
-        <SearchBar setAPISearch={setSearch}/>
+      <main className="px-5">
+        <SearchBar setAPISearch={setSearch} />
         <ul>
           {results.map((searchItem) => {
             return (
               <li key={searchItem.trackId} className="my-10">
-                <img src={searchItem.artworkUrl100} alt="track "></img>
-                <p>
-                  {searchItem.trackName} by {searchItem.artistName}
-                </p>
-                <a href={searchItem.trackViewUrl}>Link</a>
-                <p>Time: {convertMillisToTime(searchItem.trackTimeMillis)}</p>
-                <p>Genre: {searchItem.primaryGenreName}</p>
+                <img src={searchItem.artworkUrl100} alt=""></img>
+                <h2>
+                  <a href={searchItem.trackViewUrl}>{searchItem.trackName}</a>
+                </h2>
+                <p>By {searchItem.artistName}</p>
+
+                <dl className="flex gap-2">
+                  <dt className="font-bold">Duration: </dt>
+                  <dd>{convertMillisToTime(searchItem.trackTimeMillis)}</dd>
+
+                  <dt className="font-bold">Genre: </dt>
+                  <dd>{searchItem.primaryGenreName}</dd>
+
+                  <dt className="font-bold">Album: </dt>
+                  <dd>{searchItem.collectionName}</dd>
+                </dl>
               </li>
             );
           })}
