@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import SearchBar from "./search-bar";
 
 export default function Itunes() {
   let [results, setResults] = useState([]);
+  let [search, setSearch] = useState("")
   //https://itunes.apple.com/search?parameterkeyvalue
   const term1 = "jane remover";
 
@@ -22,7 +24,7 @@ export default function Itunes() {
   }
 
   useEffect(() => {
-    searchItunes();
+    // searchItunes();
     console.log("^ useeffect");
   }, []);
 
@@ -38,7 +40,7 @@ export default function Itunes() {
   return (
     <div>
       <main>
-        <h1>Hi I'm cool api page</h1>
+        <SearchBar setAPISearch={setSearch}/>
         <ul>
           {results.map((searchItem) => {
             return (
