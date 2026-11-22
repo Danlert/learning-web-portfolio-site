@@ -1,11 +1,10 @@
+"use client"
 import { useEffect, useState } from "react";
 import SearchBar from "./search-bar";
 
 export default function Itunes() {
   let [results, setResults] = useState([]);
   let [search, setSearch] = useState("")
-  //https://itunes.apple.com/search?parameterkeyvalue
-  const term1 = "jane remover";
 
   const cleanTerm = (term) => {
     return term.replaceAll(" ", "+");
@@ -14,7 +13,7 @@ export default function Itunes() {
   async function searchItunes() {
     try {
       const response = await fetch(
-        `https://itunes.apple.com/search?limit=25&entity=musicTrack&term=${cleanTerm(term1)}`,
+        `https://itunes.apple.com/search?limit=25&entity=musicTrack&term=${cleanTerm(search)}`,
       );
       const data = await response.json();
       setResults(data.results);
@@ -24,9 +23,9 @@ export default function Itunes() {
   }
 
   useEffect(() => {
-    // searchItunes();
+    searchItunes();
     console.log("^ useeffect");
-  }, []);
+  }, [search]);
 
   const convertMillisToTime = (mil) => {
     const minutes = Math.floor(mil / 60000);

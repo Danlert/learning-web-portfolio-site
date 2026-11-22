@@ -1,8 +1,8 @@
-"use client";
+"use client"
 import NavBar from "../navBar";
 import Itunes from "./itunes";
 
- export default async function Page() {
+ export default function Page() {
 
   return (
     <div>
