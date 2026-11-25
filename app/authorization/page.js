@@ -10,14 +10,20 @@ export default function Page() {
       {user ? (
         <>
           <h1 className="text-2xl">Welcome</h1>
-          <button onClick={firebaseSignOut} className="bg-amber-100 rounded-md p-5 text-cyan-950 hover:bg-amber-50 active:bg-blue-700">
+          <button
+            onClick={firebaseSignOut}
+            className="bg-amber-100 rounded-md p-5 text-cyan-950 hover:bg-amber-50 active:bg-blue-700"
+          >
             Log Out
           </button>
           <Link href="authorization/sensitive">Link to sensitive page</Link>
         </>
       ) : (
         <>
-          <button onClick={gitHubSignIn} className="bg-amber-100 rounded-md p-5 text-cyan-950 hover:bg-amber-50 active:bg-blue-700">
+          <button
+            onClick={gitHubSignIn}
+            className="bg-amber-100 rounded-md p-5 text-cyan-950 hover:bg-amber-50 active:bg-blue-700"
+          >
             Log In
           </button>
         </>
