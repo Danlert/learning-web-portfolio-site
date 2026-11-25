@@ -3,7 +3,6 @@ import NavBar from "./navBar"
 export default function Home() {
   return (
     <div>
-      <NavBar/>
       <main>
         <h1>Hi i'm main.</h1>
       </main>

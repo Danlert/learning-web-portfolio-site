@@ -6,7 +6,6 @@ import Itunes from "./itunes";
 
   return (
     <div>
-      <NavBar />
       <main>
             <h1>Hi I'm cool api page</h1>
             <Itunes></Itunes>
