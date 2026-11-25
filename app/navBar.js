@@ -16,7 +16,10 @@ export default function NavBar() {
         <li>
           <Link href="/contact">CONTACT</Link>
         </li>
+        <li>
+          <Link href="/authorization">AUTH</Link>
+        </li>
       </ul>
-    </nav>
+    </nav>  
   );
 }

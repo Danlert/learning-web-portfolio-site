@@ -1,4 +1,3 @@
-import NavBar from "../navBar";
 export default function Page() {
   return (
     <div>
